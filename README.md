@@ -1,14 +1,16 @@
-# graph-algorithms
-A collection of graph algorithms implemented in C++
+# Graph algorithms
+A collection of graph algorithms implemented in C++.
 
 ## Build
 
+To build the network analyser run:
 ```
 g++ -O2 analyse.cpp -o analyse -std=c++11
 ```
 
 ## Run
 
+Here is an example of running the network analyser:
 ```
 $ ./analyse < network.graphml
 Graph size: |V| = 1628, |E| = 53406.
