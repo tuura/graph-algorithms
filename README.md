@@ -5,7 +5,7 @@ A collection of graph algorithms implemented in C++.
 
 To build the network analyser run:
 ```
-g++ -O2 analyse.cpp -o analyse -std=c++11
+g++ -std=c++11 -O2 analyse.cpp -o analyse
 ```
 
 ## Run
@@ -20,3 +20,4 @@ Diameter: 5
 Accumulated radius: 6492
 Runtime (microseconds): 205514
 ```
+Here the _accumulated radius_ is the sum of maximum distances from each node.
