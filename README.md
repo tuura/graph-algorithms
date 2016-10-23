@@ -22,7 +22,7 @@ Graph size: |V| = 1628, |E| = 53406.
 Total number of reachable pairs of vertices: 2648756
 Total distance between reachable pairs of vertices: 6759254
 Diameter: 5
-Accumulated radius: 6492
+Accumulated eccentricity: 6492
 Runtime (microseconds): 205514
 ```
-Here the _accumulated radius_ is the sum of maximum distances from each node.
+Here the _accumulated eccentricity_ is the sum of maximum distances from each node.
