@@ -71,7 +71,7 @@ class Graph
         for(int i = 0; i < c[v].size(); i++) dfs(c[v][i]);
         post[v] = counter++;
     }
-    // Breadth-First Search, returns the graph radius from the source vertex
+    // Breadth-First Search, returns the eccentricity of the source vertex
     int runBFS(int src, int colour = 1)
     {
         visited.assign(size(), 0);
