@@ -21,8 +21,9 @@ $ ./analyse < graph.graphml
 Graph size: |V| = 1628, |E| = 53406.
 Total number of reachable pairs of vertices: 2648756
 Total distance between reachable pairs of vertices: 6759254
+Radius: 3
 Diameter: 5
 Accumulated eccentricity: 6492
-Runtime (microseconds): 205514
+Runtime (microseconds): 187521
 ```
 Here the _accumulated eccentricity_ is the sum of maximum distances from each node.

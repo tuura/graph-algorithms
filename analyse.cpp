@@ -19,12 +19,14 @@ int main(int argc, char *args[])
 
     int sum = 0;
     int pairs = 0;
+    int radius = oo;
     int diameter = 0;
     int accumulatedEccentricity = 0;
     for(int i = 0; i < g.size(); i++)
     {
         int eccentricity = g.runBFS(i);
         accumulatedEccentricity += eccentricity;
+        radius   = min(radius  , eccentricity);
         diameter = max(diameter, eccentricity);
         for(int j = 0; j < g.size(); j++)
             if (g.distance[j] != oo)
@@ -39,6 +41,7 @@ int main(int argc, char *args[])
 
     cout << "Total number of reachable pairs of vertices: " << pairs << endl;
     cout << "Total distance between reachable pairs of vertices: " << sum << endl;
+    cout << "Radius: " << radius << endl;
     cout << "Diameter: " << diameter << endl;
     cout << "Accumulated eccentricity: " << accumulatedEccentricity << endl;
 
