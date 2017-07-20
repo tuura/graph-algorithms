@@ -27,7 +27,7 @@ int main(int argc, char *args[])
 
     ios::sync_with_stdio(false);
     Graph g(readGraph(edgeProbability));
-    cout << "Graph size: |V| = " << g.size() << ", |E| = " << g.countEdges() << ".\n";
+    cout << "Graph size: |V| = " << g.size() << ", |E| = " << g.countUndirectedEdges() << ".\n";
 
     high_resolution_clock::time_point start = high_resolution_clock::now();
 

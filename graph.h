@@ -21,10 +21,19 @@ class Graph
 
     int size() { return c.size(); }
     void resize(int newSize) { c.resize(newSize); }
+
     int countEdges()
     {
         int res = 0;
         for(int i = 0; i < size(); i++) res += c[i].size();
+        return res;
+    }
+
+    int countUndirectedEdges()
+    {
+        int res = 0;
+        for(int i = 0; i < size(); i++)
+            for(int j = 0; j < c[i].size(); j++) if (i <= c[i][j]) res++;
         return res;
     }
 
