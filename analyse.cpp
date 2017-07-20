@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <vector>
+#include <cstdio>
 
 #include "graph.h"
 #include "parse.h"
@@ -11,8 +12,12 @@ using namespace std::chrono;
 
 int main(int argc, char *args[])
 {
+    double edgeProbability = 1.0, ep;
+    if (argc == 2)
+        if (sscanf(args[1], "--edge-probability=%lf", &ep) == 1) edgeProbability = ep;
+
     ios::sync_with_stdio(false);
-    Graph g(readGraph());
+    Graph g(readGraph(edgeProbability));
     cout << "Graph size: |V| = " << g.size() << ", |E| = " << g.countEdges() << ".\n";
 
     high_resolution_clock::time_point start = high_resolution_clock::now();

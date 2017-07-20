@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <cstdlib>
 
 #include "graph.h"
 
@@ -24,7 +25,7 @@ int s2i(string s)
 // Naive line-by-line parser of .graphml files from the standard input.
 // TODO: improve to handle general .graphml files (use a standard library?)
 // WARNING: the current version will crash on general .graphml files
-Graph readGraph()
+Graph readGraph(double edgeProbability = 1.0)
 {
     Graph g;
     ids.clear();
@@ -41,6 +42,9 @@ Graph readGraph()
 		else
 		if (s.find("<edge") != string::npos)
 		{
+			double r = (double)rand() / RAND_MAX;
+			if (r > edgeProbability) continue;
+
 			size_t posSource = s.find("source=");
 			size_t posTarget = s.find("target=");
 			size_t lenSource = s.find('\"', posSource + 8) - posSource - 8;
