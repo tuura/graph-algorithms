@@ -47,3 +47,9 @@ Runtime (microseconds): 176927
 
 As you can see, the sampled subgraph contains only 48204 edges, which is
 90.25% of all 53406 edges in the graph.
+
+To write the resulting subgraph into a GraphML file, use command-line flag
+`--write-file=FILENAME`, for example:
+```
+$ ./analyse --edge-probability=0.9 --write-file=subgraph.graphml < graph.graphml
+```
