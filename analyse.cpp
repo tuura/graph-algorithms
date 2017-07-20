@@ -6,6 +6,7 @@
 
 #include "graph.h"
 #include "parse.h"
+#include "write.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -13,8 +14,16 @@ using namespace std::chrono;
 int main(int argc, char *args[])
 {
     double edgeProbability = 1.0, ep;
-    if (argc == 2)
+    bool writeFile = false;
+    char filename[100];
+    if (argc >= 2)
+    {
         if (sscanf(args[1], "--edge-probability=%lf", &ep) == 1) edgeProbability = ep;
+        if (argc == 3)
+        {
+            if (sscanf(args[2], "--write-file=%s", filename) == 1) writeFile = true;
+        }
+    }
 
     ios::sync_with_stdio(false);
     Graph g(readGraph(edgeProbability));
@@ -52,6 +61,14 @@ int main(int argc, char *args[])
 
     auto duration = duration_cast<microseconds>(end - start).count();
     cout << "Runtime (microseconds): " << duration << endl;
+
+    if (writeFile)
+    {
+        puts("\nWriting file...");
+        freopen(filename, "w", stdout);
+        writeGraph(g);
+        fflush(stdout);
+    }
 
     return 0;
 }
