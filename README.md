@@ -24,6 +24,26 @@ Total distance between reachable pairs of vertices: 6759254
 Radius: 3
 Diameter: 5
 Accumulated eccentricity: 6492
-Runtime (microseconds): 187521
+Runtime (microseconds): 190933
 ```
 Here the _accumulated eccentricity_ is the sum of maximum distances from each node.
+
+## Edge probabilities
+
+You can specify the *edge probability* P that allows you to sample random subgraphs
+from the analysed graph using the command-line flag `--edge-probability=P`. For
+example:
+
+```
+$ ./analyse --edge-probability=0.9 < graph.graphml
+Graph size: |V| = 1628, |E| = 48204.
+Total number of reachable pairs of vertices: 2648756
+Total distance between reachable pairs of vertices: 6910228
+Radius: 3
+Diameter: 6
+Accumulated eccentricity: 6839
+Runtime (microseconds): 176927
+```
+
+As you can see, the sampled subgraph contains only 48204 edges, which is
+90.25% of all 53406 edges in the graph.
